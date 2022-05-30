@@ -92,7 +92,14 @@ export default {
       if (!self.loadedApps[microApp.name]) {
         self.$store.commit('micro/SET_LOADING', true)
         // 如果当前未加载该应用
-        let app = loadMicroApp(microApp)
+        let app = loadMicroApp({
+          ...microApp,
+          props: {
+            dependency: {
+              codemirror: require('codemirror')
+            }
+          }
+        })
         self.loadedApps[microApp.name] = {
           app,
           routes: []

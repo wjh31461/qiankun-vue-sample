@@ -72,7 +72,10 @@ export async function bootstrap () {
 
 // 应用每次进入都会调用mount方法，通常我们在这里触发应用的渲染方法
 export async function mount (props) {
-	render(props)
+  console.log(props.dependency)
+  window.codemirror = props.dependency.codemirror
+  
+  render(props)
 }
 
 // 应用每次切出/卸载会调用的方法，通常在这里我们会卸载微应用的应用实例
