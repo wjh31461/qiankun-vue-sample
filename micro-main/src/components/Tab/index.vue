@@ -120,7 +120,7 @@ export default {
     },
     // 传递tabs信息，更新loadedApps
     onUpdateLoadedApps () {
-      this.$bus.$emit('onUpdateLoadedAppsRoutes', this.tabs)
+      this.$bus.$emit('onUpdateLoadedApps', this.tabs)
     }
   },
   render () {

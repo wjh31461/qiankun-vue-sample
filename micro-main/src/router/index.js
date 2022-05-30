@@ -40,14 +40,8 @@ function handleBeforeEach (to, from, next) {
     return
   }
   // 处理路由信息后进行跳转
-  store.dispatch('user/Navigation').then((activeRule) => {
-    next({
-      name: 'prefetch',
-      params: {
-        activeRule: activeRule
-      }
-    })
-  })
+  store.dispatch('user/Navigation')
+  next()
 }
 
 // router.afterEach(() => {

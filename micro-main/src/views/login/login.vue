@@ -82,12 +82,7 @@ export default {
         if (err) return
         self.$store.dispatch('user/Navigation').then((activeRule) => {
           Vue.ss.set('loggedIn', true)
-          self.$router.push({
-            name: 'prefetch',
-            params: {
-              activeRule: activeRule
-            }
-          })
+          self.$router.push(activeRule)
         })
       })
     },
@@ -169,6 +164,7 @@ export default {
       align-items: center;
       justify-content: center;
       margin-bottom: 12px;
+      height: 100px;
       .logo{
         height: 50px;
         width: 50px;

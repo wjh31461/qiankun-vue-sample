@@ -164,6 +164,7 @@ export default {
       align-items: center;
       justify-content: center;
       margin-bottom: 12px;
+      height: 100px;
       .logo{
         height: 50px;
         width: 50px;

@@ -15,7 +15,7 @@ window.custom = {
   "activeRule": [],
   "systemName": "micro-sample",
   "copyright": "jinghaihan",
-  "menuLayout": "nav",
-  "menuTheme": "light",
+  "menuLayout": "menu",
+  "menuTheme": "dark",
   "needToLogin": false
 }

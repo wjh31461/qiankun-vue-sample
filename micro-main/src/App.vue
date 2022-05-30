@@ -25,8 +25,6 @@ export default {
       locale: zhCN,
       // 全部配置微应用信息
       apps,
-      // 是否预加载完毕
-      prefetched: false,
       // 当前已加载的微应用信息
       loadedApps: {},
       // 全部微应用路由信息
@@ -34,7 +32,7 @@ export default {
       // 是否viewLayout展示
       isViewLayout: true,
       // 属于主应用viewLayout的路由名称
-      viewLayoutList: ['login', 'prefetch']
+      viewLayoutList: ['login']
     }
   },
   computed: {
@@ -59,9 +57,7 @@ export default {
         if (route.fullPath !== '/') {
           if (!this.viewLayoutList.includes(route.name)) {
             this.isViewLayout = false
-            if (this.prefetched) {
-              this.loadApp(route)
-            }
+            this.loadApp(route)
             // 记录路由修改位置，实现刷新位置重定向
             Vue.ss.set('routePath', route.path)
           } else {
@@ -81,19 +77,12 @@ export default {
   mounted () {
     let self = this
 
-    self.$bus.$on('onUpdateLoadedApps', function (data) {
-      self.loadedApps = _.cloneDeep(data)
-      // 预加载完成
-      self.prefetched = true
-    })
-
-    self.$bus.$on('onUpdateLoadedAppsRoutes', function (tabs) {
+    self.$bus.$on('onUpdateLoadedApps', function (tabs) {
       self.updateLoadedApps(tabs)
     })
   },
   beforeDestroy () {
     this.$bus.$off('onUpdateLoadedApps')
-    this.$bus.$off('onUpdateLoadedAppsRoutes')
   },
   methods: {
     // 微应用加载

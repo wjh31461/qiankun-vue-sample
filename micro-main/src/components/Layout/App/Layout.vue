@@ -7,8 +7,7 @@
     <!-- 子应用渲染容器 -->
     <div class="app-container">
       <a-spin v-show="loading" size="large" class="spin"></a-spin>
-      <!-- 动态渲染微应用挂载容器 -->
-      <!-- 实现多实例同时运行，实现跨应用的keepAlive功能 -->
+      <!-- 动态渲染微应用挂载容器，实现多实例同时运行，实现跨应用的keepAlive功能 -->
       <div v-for="app in apps" :key="app.name" :id="app.name"></div>
     </div>
   </div>
