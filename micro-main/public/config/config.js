@@ -17,5 +17,5 @@ window.custom = {
   "copyright": "jinghaihan",
   "menuLayout": "nav",
   "menuTheme": "light",
-  "needToLogin": true
+  "needToLogin": false
 }
