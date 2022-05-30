@@ -20,7 +20,7 @@ const router = createRouter()
 router.beforeEach((to, from, next) => {
   // NProgress.start()
   let loggedIn = Vue.ss.get('loggedIn')
-  if (loggedIn || !window.custom.loginPage) {
+  if (loggedIn || !window.custom.needToLogin) {
     handleBeforeEach(to, from, next)
   } else {
     if (to.name === 'login') {

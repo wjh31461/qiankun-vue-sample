@@ -1,6 +1,6 @@
 <template>
   <div class="action-container">
-    <a-icon class="action-icon" type="poweroff" title="退出登录" v-if="loginPage"></a-icon>
+    <a-icon class="action-icon" type="poweroff" title="退出登录" v-if="needToLogin"></a-icon>
     <hello-world v-if="HelloWorld"></hello-world>
   </div>
 </template>
@@ -11,7 +11,7 @@ import Vue from 'vue'
 export default {
   data () {
     return {
-      loginPage: window.custom.loginPage,
+      needToLogin: window.custom.needToLogin,
       HelloWorld: false
     }
   },

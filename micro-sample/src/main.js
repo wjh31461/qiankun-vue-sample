@@ -45,7 +45,7 @@ function render (props) {
 function initRender () {
   if (!window.__POWERED_BY_QIANKUN__) {
     // 如果不存在登录页面，直接加载页面
-    if (!window.custom.loginPage) {
+    if (!window.custom.needToLogin) {
       store.dispatch('user/Navigation')
     }
   }

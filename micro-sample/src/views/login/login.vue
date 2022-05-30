@@ -158,6 +158,7 @@ export default {
   }
   .login{
     width: 380px;
+    padding-bottom: 50px;
     .title{
       display: flex;
       align-items: center;
