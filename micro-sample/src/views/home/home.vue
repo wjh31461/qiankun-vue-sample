@@ -9,7 +9,7 @@
 export default {
   name: 'home',
   created () {
-    console.log(window.codemirror)
+    
   },
   activated () {
 

@@ -27,6 +27,13 @@ module.exports = {
       libraryTarget: 'umd',
       // 按需加载相关，设置为 webpackJsonp_项目名称 即可
       jsonpFunction: `webpackJsonp_${name}`
+    },
+    externals: {
+      'vue': 'Vue',
+      'vuex': 'Vuex',
+      'vue-router': 'VueRouter',
+      'moment': 'moment',
+      'ant-design-vue': 'antd'
     }
   },
 

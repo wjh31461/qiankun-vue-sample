@@ -1,5 +1,5 @@
 <template>
-  <a-config-provider :locale="locale" :getPopupContainer="getPopupContainer">
+  <a-config-provider :locale="locales.zh_CN" :getPopupContainer="getPopupContainer">
     <div id="app">
       <!-- 全屏样式布局-登陆页/预加载遮罩蒙层 -->
       <view-layout v-show="isViewLayout"></view-layout>
@@ -10,19 +10,20 @@
 </template>
 
 <script>
-import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
 import Vue from 'vue'
 import { ViewLayout, AppLayout } from '@comp/Layout'
 import { loadMicroApp } from 'qiankun'
 import apps from '@/micro/apps'
 import actions from '@/micro/actions'
 
+const { locales } = window.antd
+
 export default {
   name: 'App',
   components: { ViewLayout, AppLayout },
   data () {
     return {
-      locale: zhCN,
+      locales,
       // 全部配置微应用信息
       apps,
       // 当前已加载的微应用信息
@@ -92,14 +93,7 @@ export default {
       if (!self.loadedApps[microApp.name]) {
         self.$store.commit('micro/SET_LOADING', true)
         // 如果当前未加载该应用
-        let app = loadMicroApp({
-          ...microApp,
-          props: {
-            dependency: {
-              codemirror: require('codemirror')
-            }
-          }
-        })
+        let app = loadMicroApp(microApp)
         self.loadedApps[microApp.name] = {
           app,
           routes: []

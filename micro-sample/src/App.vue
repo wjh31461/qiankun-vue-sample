@@ -1,5 +1,5 @@
 <template>
-  <a-config-provider :locale="locale" :getPopupContainer="getPopupContainer">
+  <a-config-provider :locale="locales.zh_CN" :getPopupContainer="getPopupContainer">
     <div id="app">
       <keep-alive>
         <router-view></router-view>
@@ -9,15 +9,16 @@
 </template>
 
 <script>
-import zhCN from 'ant-design-vue/lib/locale-provider/zh_CN'
 import config from '@/../package.json'
 import actions from '@/micro/actions'
+
+const { locales } = window.antd
 
 export default {
   name: 'App',
   data () {
     return {
-      locale: zhCN,
+      locales,
       // 是否完成路由渲染
       flag: false,
       appName: config.name

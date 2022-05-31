@@ -1,4 +1,4 @@
-# micro-sample
+# qiankun-vue-sample
 
 ## 基于qiankun的微前端示例
 

@@ -18,7 +18,14 @@ module.exports = {
         _: 'lodash',
         'moment': 'moment'
       })
-    ]
+    ],
+    externals: {
+      'vue': 'Vue',
+      'vuex': 'Vuex',
+      'vue-router': 'VueRouter',
+      'moment': 'moment',
+      'ant-design-vue': 'antd'
+    }
   },
 
   chainWebpack: config => {
